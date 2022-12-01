@@ -26,7 +26,7 @@ class ClientsAdapter(
 
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int) {
         val currentClient = clients[position]
-        when(currentClient.priority.lowercase()){
+        when(currentClient.priority?.lowercase()){
             "high" -> holder.itemView.myLayout.setBackgroundColor(Color.parseColor("#F05454"))
             "medium" -> holder.itemView.myLayout.setBackgroundColor(Color.parseColor("#EDC988"))
             else -> holder.itemView.myLayout.setBackgroundColor(Color.parseColor("#00917C"))

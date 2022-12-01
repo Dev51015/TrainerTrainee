@@ -4,13 +4,14 @@ object DataObject {
 
     var listData = mutableListOf<Client>()
 
-    fun setData(name: String,
-                priority: String,
-                age: Int,
+    fun setData(
+        name: String,
+        priority: String,
+                /*age: Int,
                 height: Double,
                 weight: Double,
                 fatPercent: Double,
-                musclePercent: Double)
+                musclePercent: Double*/)
     {
         listData.add(Client(name,priority))
     }

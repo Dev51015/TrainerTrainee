@@ -9,9 +9,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_add_client.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_one.*
+import kotlinx.android.synthetic.main.fragment_three.*
 import java.io.Console
 
 class AddClient : AppCompatActivity() {
@@ -20,9 +23,25 @@ class AddClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_client)
 
-        var priorities = arrayOf("normal", "medium", "high")
-        var heightUnits = arrayOf("cm","feet")
-        var weightUnits = arrayOf("kg","pounds")
+        val fragmentOne = FragmentOne()
+        val fragmentTwo = FragmentTwo()
+        val fragmentThree = FragmentThree()
+
+        setCurrentFragment(fragmentOne)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.traineeInfo -> setCurrentFragment(fragmentOne)
+                R.id.training -> setCurrentFragment(fragmentTwo)
+                R.id.traineeMeals -> setCurrentFragment(fragmentThree)
+                R.id.saveInfo -> save()
+            }
+            true
+        }
+
+       /* val priorities = arrayOf("normal", "medium", "high")
+        val heightUnits = arrayOf("cm","feet")
+        val weightUnits = arrayOf("kg","pounds")
 
         //Setting up priority spinner's adapter and listener
         val priorityArrayAdapter =  ArrayAdapter(this, R.layout.item_priority,priorities)
@@ -79,9 +98,9 @@ class AddClient : AppCompatActivity() {
 
             }
 
-        }
+        }*/
 
-        saveBtn.setOnClickListener {
+        /*saveBtn.setOnClickListener {
             val clientName = etClientName.text.toString()
             val clientPriority = prioritySpinner.selectedItem.toString()
             DataObject.setData(clientName, clientPriority)
@@ -90,9 +109,24 @@ class AddClient : AppCompatActivity() {
 
         cancelBtn.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
+        }*/
+
+    }
+
+    private fun setCurrentFragment (fragment : Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, fragment)
+            commit()
         }
     }
 
+
+    private fun save(){
+        val clientName = etClientName.text.toString()
+        val clientPriority = prioritySpinner.selectedItem.toString()
+        DataObject.setData(clientName, clientPriority)
+        return startActivity(Intent(this, MainActivity::class.java))
+    }
 
 }
 
