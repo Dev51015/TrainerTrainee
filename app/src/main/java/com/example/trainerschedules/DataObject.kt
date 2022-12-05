@@ -2,18 +2,31 @@ package com.example.trainerschedules
 
 object DataObject {
 
-    var listData = mutableListOf<Client>()
+    private var listData = mutableListOf<Client>()
 
     fun setData(
         name: String,
         priority: String,
-                /*age: Int,
-                height: Double,
-                weight: Double,
-                fatPercent: Double,
-                musclePercent: Double*/)
+        goal: String,
+        age: String,
+        height: String,
+        heightUnit: String,
+        weight: String,
+        weightUnit: String,
+        fatPercent: String,
+        musclePercent: String,
+        )
     {
-        listData.add(Client(name,priority))
+        listData.add(Client(name,
+            priority,
+            goal,
+            age,
+            height,
+            heightUnit,
+            weight,
+            weightUnit,
+            fatPercent,
+            musclePercent))
     }
 
     fun getAllData():List<Client>
@@ -25,9 +38,29 @@ object DataObject {
         return listData[pos]
     }
 
-    fun updateData(pos:Int,name:String)
+    fun updateData(pos:Int,
+                   name:String,
+                   priority: String,
+                   goal: String,
+                   age : String,
+                   height: String,
+                   heightUnit: String,
+                   weight: String,
+                   weightUnit: String,
+                   fatPercent: String,
+                   musclePercent: String
+                   )
     {
         listData[pos].name=name
+        listData[pos].priority=priority
+        listData[pos].goal=goal
+        listData[pos].age=age
+        listData[pos].height=height
+        listData[pos].heightUnit=heightUnit
+        listData[pos].weight=weight
+        listData[pos].weightUnit=weightUnit
+        listData[pos].fatPercent=fatPercent
+        listData[pos].musclePercent=musclePercent
     }
 
     fun deleteData(pos: Int): Client{

@@ -1,44 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateClient">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black">
 
-    <TextView
-        android:id="@+id/tvUpdateName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        tools:context=".ViewAndUpdateClient" >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/cancelUpdate"
+                    android:layout_width="44dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_main_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/updateClient"
+                    android:layout_width="44dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_update"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/deleteClient"
+                    android:layout_width="44dp"
+                    android:layout_height="34dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/updateClient"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Client Details"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:gravity="center"
+            android:fontFamily="sans-serif"/>
+
+        <LinearLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp" >
 
-    <EditText
-        android:id="@+id/etUpdateName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tvUpdateName"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="text"
-        android:importantForAutofill="no" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Name: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
 
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvUpdateName"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Update" />
+            <EditText
+                android:id="@+id/updateName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Client's Name"
+                android:inputType="text"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/deleteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/updateBtn"
-        app:layout_constraintTop_toBottomOf="@+id/etUpdateName"
-        android:text="Delete" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/updatePriorityLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Priority:"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+            <Spinner
+                android:id="@+id/updatePriority"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/updateGoalLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Goal:"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginLeft="20dp"
+                android:padding="15dp"
+                android:hint="Trainee's goal"
+                android:inputType="text"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/updateAgeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Age: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Age"
+                android:inputType="number"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/layoutHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Height: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateClientHeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Height"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"
+                />
+
+            <Spinner
+                android:id="@+id/updateHeightUnit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Weight: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateClientWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Weight"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"
+                />
+
+            <Spinner
+                android:id="@+id/updateWeightUnit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="15dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFatPercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fat %: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateFatPercentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Fat Percentage"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="%"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutMusclePercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Muscle %: "
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+
+            <EditText
+                android:id="@+id/updateMusclePercentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Muscle Percentage"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColorHint="#BFBBBB"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="%"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/traineeInfo"
@@ -7,18 +8,9 @@
         android:icon="@drawable/ic_info" />
 
     <item
-        android:id="@+id/training"
-        android:title="training"
-        android:icon="@drawable/ic_training" />
+        android:id="@+id/chat"
+        android:title="chat"
+        android:icon="@drawable/ic_chat" />
 
-    <item
-        android:id="@+id/traineeMeals"
-        android:title="meals"
-        android:icon="@drawable/ic_meals" />
-
-    <item
-        android:id="@+id/saveInfo"
-        android:title="save"
-        android:icon="@drawable/ic_save" />
 
 </menu>

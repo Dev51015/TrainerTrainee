@@ -21,7 +21,6 @@ class FragmentOne : Fragment() {
     ): View? {
         val fragOne = inflater.inflate(R.layout.fragment_one, container, false)
 
-
         val priorities = arrayOf("normal", "medium", "high")
         val heightUnits = arrayOf("cm","feet")
         val weightUnits = arrayOf("kg","pounds")
@@ -34,16 +33,7 @@ class FragmentOne : Fragment() {
         prioritySpinner.adapter = priorityArrayAdapter
         prioritySpinner.setBackgroundColor(R.color.black)
 
-        prioritySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                Toast.makeText(activity?.applicationContext, "Selected priority is " + priorities[pos],Toast.LENGTH_SHORT).show()
-            }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-
-        }
 
         //Setting up height unit spinner's adapter and listener
         val heightArrayAdapter =  ArrayAdapter(activity!!, R.layout.item_priority,heightUnits)
@@ -53,16 +43,6 @@ class FragmentOne : Fragment() {
         heightSpinner.adapter = heightArrayAdapter
         heightSpinner.setBackgroundColor(R.color.black)
 
-        heightSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                Toast.makeText(activity?.applicationContext, "Selected height unit is " + heightUnits[pos],Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-
-        }
 
         //Setting up weight unit spinner's adapter and listener
         val weightArrayAdapter =  ArrayAdapter(activity!!, R.layout.item_priority,weightUnits)
@@ -72,22 +52,8 @@ class FragmentOne : Fragment() {
         weightSpinner.adapter = weightArrayAdapter
         weightSpinner.setBackgroundColor(R.color.black)
 
-        weightSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                Toast.makeText(activity?.applicationContext, "Selected weight unit is " + weightUnits[pos],Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-
-        }
 
         // Inflate the layout for this fragment
         return fragOne
-
-        
-
-
     }
 }

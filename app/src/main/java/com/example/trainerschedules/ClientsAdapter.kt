@@ -37,7 +37,7 @@ class ClientsAdapter(
             }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context,UpdateClient::class.java)
+            val intent = Intent(holder.itemView.context,ViewAndUpdateClient::class.java)
             intent.putExtra("id",position)
             holder.itemView.context.startActivity(intent)
         }
